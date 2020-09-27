@@ -1,0 +1,55 @@
+spring:
+  application:
+    name: api-gateway
+server:
+  port: 10010
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+    registry-fetch-interval-seconds: 5
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 12500
+ribbon:
+  ConnectTimeout: 6000
+  ReadTimeout: 6000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 0
+zuul:
+  prefix: /api
+  routes:
+    item-service: /item/**
+    search-service: /search/**
+    user-service: /user/**
+    auth-service: /auth/**
+    cart-service: /cart/**
+    upload-service:
+      path: /upload/**
+      serviceId: upload-service
+      strip-prefix: false
+  add-host-header: true
+  sensitive-headers:
+ly:
+  cros:
+    allowedOrigin:
+      - http://manage.leyou.com
+      - http://www.leyou.com
+  jwt:
+    pubKeyPath: D:/rsa.pub
+    cookieName: LY_TOKEN
+  filter:
+    allowPaths:
+      - /api/auth
+      - /api/search
+      - /api/user/register
+      - /api/user/check
+      - /api/user/code
+      - /api/item

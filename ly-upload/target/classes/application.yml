@@ -1,0 +1,27 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: upload-service
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+fdfs:
+  so-timeout: 2500
+  connect-timeout: 600
+  thumb-image:
+    width: 60
+    height: 60
+  tracker-list:
+    - 192.168.154.130:22122
+ly:
+  upload:
+    baseUrl: http://image.leyou.com/
+    allowTypes:
+      - image/jpg
+      - image/jpeg
+      - image/png

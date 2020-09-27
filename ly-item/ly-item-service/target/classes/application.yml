@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: item-service
+  datasource:
+    url: jdbc:mysql://140.143.156.27:3306/leyou?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: GLBglb582@@
+  rabbitmq:
+    host: 192.168.154.130
+    username: leyou
+    password: leyou
+    virtual-host: /leyou
+    template:
+      retry:
+        enabled: true
+        initial-interval: 10000ms
+        multiplier: 2
+        max-interval: 30000ms
+      exchange: ly.item.exchange
+    publisher-confirms: true
+server:
+  port: 8081
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+logging:
+  level:
+    com.leyou.item.mapper : debug
