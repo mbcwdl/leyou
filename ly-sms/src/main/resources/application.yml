@@ -12,7 +12,7 @@ server:
   port: 8086
 leyou:
   sms:
-    accessKeyId: LTAI4G5PWhF9Qb9ZWQ2YBZca # 你自己的accessKeyId
-    accessKeySecret: kuW3l6ZcLONTkD3shron9t6XukE42y # 你自己的AccessKeySecret
+    accessKeyId:  # 你自己的accessKeyId
+    accessKeySecret:  # 你自己的AccessKeySecret
     signName: 乐优商城 # 签名名称
     verifyCodeTemplate: SMS_203725516 # 模板名称
